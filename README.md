@@ -230,3 +230,13 @@ dish-dashboard/
 - Unit and integration tests (Vitest, Supertest)
 - Docker Compose for one-command setup
 - CI/CD pipeline
+
+---
+
+## Author
+
+**MRaashu76**
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
