@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-800 font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    transition: filter 0.3s ease;
+  }
+
+  /* Magic Dark Mode Trick */
+  html.dark-theme body {
+    filter: invert(1) hue-rotate(180deg);
+    background-color: #f9fafb; /* ensure base background forces dark flip */
+  }
+
+  /* Prevent images, videos, and avatars from being inverted twice */
+  html.dark-theme img,
+  html.dark-theme video,
+  html.dark-theme svg,
+  html.dark-theme .no-invert {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+@layer components {
+  .sidebar-nav-item {
+    @apply flex flex-col items-center gap-1 py-3 px-2 rounded-xl cursor-pointer transition-all duration-200 text-gray-400 hover:text-brand-600 hover:bg-brand-50 text-xs font-medium w-full;
+  }
+
+  .sidebar-nav-item.active {
+    @apply text-brand-600 bg-brand-50;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .toggle-btn {
+    @apply px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Skeleton shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Pulse badge animation */
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.badge-live {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
