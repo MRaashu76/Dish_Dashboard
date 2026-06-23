@@ -236,6 +236,7 @@ dish-dashboard/
 ## Author
 
 **MRaashu76**
+- Email: aashishkumards123@gmail.com
 
 ## License
 
